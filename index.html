@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
 <meta charset="UTF-8">
 <title>MINIONVERSE</title>
 
 <style>
-
+/* ===== Geral ===== */
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:linear-gradient(#FFD500,#FFF176);
 text-align:center;
 overflow-x:hidden;
@@ -17,13 +16,54 @@ overflow-x:hidden;
 
 header{
 background:#FFD500;
-padding:40px;
+padding:20px;
 font-size:40px;
+font-weight:bold;
+position:relative;
+}
+
+.logo-minion{
+width:150px;
+margin-top:10px;
+}
+
+/* ===== Menu Abas ===== */
+.navbar{
+display:flex;
+justify-content:center;
+background:#FFC107;
+box-shadow:0 4px 6px rgba(0,0,0,0.2);
+}
+
+.navbar button{
+background:none;
+border:none;
+padding:15px 25px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
 font-weight:bold;
 }
 
+.navbar button:hover{
+background:#FFD54F;
+border-radius:10px;
+}
+
+.tabcontent{
+display:none;
+padding:30px;
+animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* ===== Seção ===== */
 .section{
-padding:40px;
+padding:20px;
 }
 
 .minion{
@@ -32,9 +72,9 @@ animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
-0%{transform:translateY(0)}
-50%{transform:translateY(-20px)}
-100%{transform:translateY(0)}
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
 }
 
 .banana{
@@ -43,8 +83,8 @@ animation:spin 4s infinite linear;
 }
 
 @keyframes spin{
-from{transform:rotate(0deg)}
-to{transform:rotate(360deg)}
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
 }
 
 .card{
@@ -66,87 +106,159 @@ border-radius:10px;
 cursor:pointer;
 }
 
+#contador{
+font-size:24px;
+margin-top:10px;
+}
+
+/* ===== Chuva de bananas ===== */
+.banana-rain{
+position:absolute;
+width:50px;
+animation:fall 3s linear;
+z-index:999;
+}
+
+@keyframes fall{
+0%{top:-50px;}
+100%{top:100vh;}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-🍌 UNIVERSOMINION 🍌
+🍌 MINIONVERSE 🍌
+<br>
+<img class="logo-minion" src="https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png" alt="Minionverse Logo">
 </header>
 
+<div class="navbar">
+<button onclick="openTab('inicio')">Início</button>
+<button onclick="openTab('viloes')">Vilões</button>
+<button onclick="openTab('minigame')">Mini Game</button>
+</div>
+
+<!-- ===== ABA INÍCIO ===== -->
+<div id="inicio" class="tabcontent" style="display:block;">
 <div class="section">
-
-<img class="minion"
-src="https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png">
-
+<img class="minion" src="https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png">
 <h2>O QUE SÃO OS MINIONS?</h2>
-
 <div class="card">
 Os Minions são criaturas amarelas que existem há milhares de anos e
 sempre procuram servir o maior vilão possível.
-
 Eles são extremamente resistentes, falam uma língua chamada
 <b>Minionese</b> e vivem causando caos enquanto tentam ajudar
 seu chefe malvado.
 </div>
-
 </div>
 
 <div class="section">
-
 <h2>🍌 RELIGIÃO DOS MINIONS: BANANA</h2>
-
-<img class="banana"
-src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
-
+<img class="banana" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
 <div class="card">
 Minions possuem uma obsessão absurda por bananas.
 Quando veem uma banana eles entram em modo caótico
 tentando pegar a fruta a qualquer custo.
 </div>
-
 </div>
 
 <div class="section">
-
 <h2>TEORIAS MALUCAS SOBRE MINIONS</h2>
-
 <div class="card">
 🧠 Teoria 1: Minions são imortais e existem desde a pré-história.
 </div>
-
 <div class="card">
 🍌 Teoria 2: Minions são feitos de DNA de banana.
 </div>
-
 <div class="card">
 🌎 Teoria 3: Minions são uma espécie alienígena enviada para
 ajudar vilões a dominar a Terra.
 </div>
-
 </div>
 
 <div class="section">
-
 <h2>CLIQUE PARA RECEBER BANANAS</h2>
-
-<button onclick="banana()">BANANA!!!</button>
-
+<button onclick="bananaClick()">BANANA!!!</button>
 <p id="contador"></p>
+</div>
+</div>
 
+<!-- ===== ABA VILÕES ===== -->
+<div id="viloes" class="tabcontent">
+<div class="section">
+<h2>GRU</h2>
+<img class="minion" src="https://upload.wikimedia.org/wikipedia/en/8/89/Gru.png">
+<div class="card">
+Gru é o antigo vilão que deseja dominar o mundo.  
+Ele adota 3 meninas (Margo, Edith e Agnes).  
+Um vilão com coração mole que evolui ao longo dos filmes.
+</div>
+</div>
+
+<div class="section">
+<h2>DR. NEFARIO</h2>
+<img class="minion" src="https://upload.wikimedia.org/wikipedia/en/0/04/Dr._Nefario.png">
+<div class="card">
+Dr. Nefario é o cientista maluco parceiro de Gru.  
+Cria gadgets e máquinas insanas.  
+Idoso, excêntrico e extremamente leal.
+</div>
+</div>
+</div>
+
+<!-- ===== ABA MINI GAME ===== -->
+<div id="minigame" class="tabcontent">
+<div class="section">
+<h2>MINION DANÇANDO & MINI GAME</h2>
+<img class="minion" src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+<div class="card">
+<p>Clique nas bananas para coletar!</p>
+<button onclick="bananaClick()">BANANA!!!</button>
+<p id="contadorMini"></p>
+</div>
+</div>
 </div>
 
 <script>
-
-let bananas=0
-
-function banana(){
-bananas++
-document.getElementById("contador").innerText=
-"Você coletou "+bananas+" bananas 🍌"
+/* ===== Controle Abas ===== */
+function openTab(tabName){
+  const tabs = document.getElementsByClassName('tabcontent');
+  for(let t of tabs){
+    t.style.display='none';
+  }
+  document.getElementById(tabName).style.display='block';
 }
 
+/* ===== Contador de Bananas ===== */
+let bananas = 0;
+
+function bananaClick(){
+  bananas++;
+  document.getElementById("contador").innerText = "Você coletou "+bananas+" bananas 🍌";
+  document.getElementById("contadorMini").innerText = "Você coletou "+bananas+" bananas 🍌";
+
+  if(bananas % 10 === 0){
+    startBananaRain();
+  }
+}
+
+/* ===== Chuva de Bananas ===== */
+function startBananaRain(){
+  const count = 20; // número de bananas na chuva
+  for(let i=0;i<count;i++){
+    const bananaImg = document.createElement('img');
+    bananaImg.src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg";
+    bananaImg.className='banana-rain';
+    bananaImg.style.left=Math.random()*window.innerWidth+'px';
+    bananaImg.style.animationDuration=(2+Math.random()*2)+'s';
+    document.body.appendChild(bananaImg);
+    
+    // Remove após 3s
+    setTimeout(()=>bananaImg.remove(),3000);
+  }
+}
 </script>
 
 </body>
