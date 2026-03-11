@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<title>MINIONVERSE</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(#FFD500,#FFF176);
+text-align:center;
+overflow-x:hidden;
+}
+
+header{
+background:#FFD500;
+padding:40px;
+font-size:40px;
+font-weight:bold;
+}
+
+.section{
+padding:40px;
+}
+
+.minion{
+width:200px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+100%{transform:translateY(0)}
+}
+
+.banana{
+width:100px;
+animation:spin 4s infinite linear;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+.card{
+background:white;
+margin:20px auto;
+padding:20px;
+border-radius:15px;
+width:70%;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+button{
+padding:15px 25px;
+font-size:20px;
+background:black;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+🍌 MINIONVERSE 🍌
+</header>
+
+<div class="section">
+
+<img class="minion"
+src="https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png">
+
+<h2>O QUE SÃO OS MINIONS?</h2>
+
+<div class="card">
+Os Minions são criaturas amarelas que existem há milhares de anos e
+sempre procuram servir o maior vilão possível.
+
+Eles são extremamente resistentes, falam uma língua chamada
+<b>Minionese</b> e vivem causando caos enquanto tentam ajudar
+seu chefe malvado.
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🍌 RELIGIÃO DOS MINIONS: BANANA</h2>
+
+<img class="banana"
+src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg">
+
+<div class="card">
+Minions possuem uma obsessão absurda por bananas.
+Quando veem uma banana eles entram em modo caótico
+tentando pegar a fruta a qualquer custo.
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>TEORIAS MALUCAS SOBRE MINIONS</h2>
+
+<div class="card">
+🧠 Teoria 1: Minions são imortais e existem desde a pré-história.
+</div>
+
+<div class="card">
+🍌 Teoria 2: Minions são feitos de DNA de banana.
+</div>
+
+<div class="card">
+🌎 Teoria 3: Minions são uma espécie alienígena enviada para
+ajudar vilões a dominar a Terra.
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>CLIQUE PARA RECEBER BANANAS</h2>
+
+<button onclick="banana()">BANANA!!!</button>
+
+<p id="contador"></p>
+
+</div>
+
+<script>
+
+let bananas=0
+
+function banana(){
+bananas++
+document.getElementById("contador").innerText=
+"Você coletou "+bananas+" bananas 🍌"
+}
+
+</script>
+
+</body>
+</html>
